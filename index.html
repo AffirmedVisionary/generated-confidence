@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confident Character Prompt Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cream': '#FDF8F3',
+                        'terracotta': '#E07A5F',
+                        'soft-gold': '#F2CC8F',
+                        'espresso': '#3D2914',
+                        'warm-white': '#FEFCF9'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px rgba(224, 122, 95, 0.1)',
+                        'elevated': '0 8px 30px rgba(224, 122, 95, 0.15)',
+                        'glow': '0 0 20px rgba(242, 204, 143, 0.3)'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-poppins bg-cream text-espresso min-h-screen">
+    <!-- Page 1: Home -->
+    <div id="page1" class="min-h-screen">
+        <!-- Gradient Header -->
+        <div class="bg-gradient-to-br from-terracotta via-soft-gold to-terracotta/80 py-20 px-6">
+            <div class="max-w-5xl mx-auto text-center">
+                <h1 class="text-6xl md:text-8xl font-bold mb-2 leading-tight text-white drop-shadow-lg">
+                    <span class="text-warm-white">Generated Confidence</span>
+                </h1>
+                <h2 class="text-3xl md:text-4xl font-light mb-6 leading-tight">
+                    <span class="bg-gradient-to-r from-white to-warm-white bg-clip-text text-transparent italic">prompt generator</span>
+                </h2>
+                <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed font-medium">
+                    Build stylish, Afrocentric, youthful character prompts for AI art — instantly.
+                </p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="px-6 py-16 -mt-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-3xl p-8 md:p-12 mb-12 shadow-elevated border border-soft-gold/20">
+                    <p class="text-lg md:text-xl text-espresso/80 leading-relaxed text-center">
+                        Welcome to the Confident Character Prompt Builder! Mix and match stylish features to generate detailed AI-ready prompts for characters that radiate confidence and creativity.
+                    </p>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <button onclick="showPage('page2')" class="group bg-gradient-to-r from-terracotta to-terracotta/90 hover:from-terracotta/90 hover:to-terracotta text-white font-bold text-xl px-10 py-5 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-soft hover:shadow-elevated">
+                        <span class="flex items-center justify-center gap-3">
+                            → Build Your Prompt
+                            <div class="w-2 h-2 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </span>
+                    </button>
+                    <button onclick="showPage('page3')" class="group bg-white hover:bg-warm-white text-terracotta font-bold text-xl px-10 py-5 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-soft hover:shadow-elevated border-2 border-terracotta/20 hover:border-terracotta/40">
+                        <span class="flex items-center justify-center gap-3">
+                            → Explore Visionary Vault
+                            <div class="w-2 h-2 bg-terracotta rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 2: Prompt Builder -->
+    <div id="page2" class="hidden min-h-screen">
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-soft-gold/20 to-terracotta/10 py-12 px-6">
+            <div class="max-w-6xl mx-auto text-center">
+                <button onclick="showPage('page1')" class="text-terracotta hover:text-terracotta/80 mb-6 inline-flex items-center font-medium transition-colors duration-300">
+                    ← Back to Home
+                </button>
+                <h1 class="text-5xl md:text-6xl font-bold text-espresso mb-4">Prompt Builder</h1>
+                <p class="text-xl text-espresso/70 font-medium">Create your perfect character prompt</p>
+            </div>
+        </div>
+
+        <div class="px-6 py-12">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Left Column: Controls -->
+                    <div class="space-y-6">
+                        <!-- Confidence Level -->
+                        <div class="bg-white rounded-2xl p-6 shadow-soft border border-soft-gold/20 hover:shadow-elevated transition-all duration-300">
+                            <label class="block text-lg font-semibold mb-4 text-terracotta">✨ Confidence Level</label>
+                            <div class="flex gap-3">
+                                <select id="confidence" class="flex-1 bg-warm-white border-2 border-soft-gold/30 rounded-xl px-4 py-3 text-espresso font-medium focus:border-terracotta focus:outline-none transition-colors duration-300">
+                                    <option value="">Choose your vibe...</option>
+                                    <option value="supremely confident">Supremely confident</option>
+                                    <option value="boldly self-assured">Boldly self-assured</option>
+                                    <option value="quietly confident">Quietly confident</option>
+                                    <option value="radiantly confident">Radiantly confident</option>
+                                    <option value="effortlessly cool">Effortlessly cool</option>
+                                    <option value="powerfully poised">Powerfully poised</option>
+                                    <option value="charismatically confident">Charismatically confident</option>
+                                    <option value="serenely self-possessed">Serenely self-possessed</option>
+                                    <option value="dynamically assured">Dynamically assured</option>
+                                    <option value="gracefully confident">Gracefully confident</option>
+                                </select>
+                                <button onclick="randomizeField('confidence')" class="bg-gradient-to-r from-soft-gold to-soft-gold/80 hover:from-soft-gold/80 hover:to-soft-gold text-espresso px-4 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-soft">🎲</button>
+                            </div>
+                        </div>
+
+                        <!-- Age/Identity -->
+                        <div class="bg-white rounded-2xl p-6 shadow-soft border border-soft-gold/20 hover:shadow-elevated transition-all duration-300">
+                            <label class="block text-lg font-semibold mb-4 text-terracotta">👤 Age/Identity</label>
+                            <div class="flex gap-3">
+                                <select id="identity" class="flex-1 bg-warm-white border-2 border-soft-gold/30 rounded-xl px-4 py-3 text-espresso font-medium focus:border-terracotta focus:outline-none transition-colors duration-300">
+                                    <option value="">Choose identity...</option>
+                                    <option value="young Black woman">Young Black woman</option>
+                                    <option value="teenage Black girl">Teenage Black girl</option>
+                                    <option value="young Black man">Young Black man</option>
+                                    <option value="college-aged Black woman">College-aged Black woman</option>
+                                    <option value="20-something Black creative">20-something Black creative</option>
+                                    <option value="young Afro-Caribbean woman">Young Afro-Caribbean woman</option>
+                                    <option value="Gen Z Black artist">Gen Z Black artist</option>
+                                    <option value="young Black entrepreneur">Young Black entrepreneur</option>
+                                    <option value="teenage Black artist">Teenage Black artist</option>
+                                    <option value="young Black student">Young Black student</option>
+                                </select>
+                                <button onclick="randomizeField('identity')" class="bg-gradient-to-r from-soft-gold to-soft-gold/80 hover:from-soft-gold/80 hover:to-soft-gold text-espresso px-4 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-soft">🎲</button>
+                            </div>
+                        </div>
+
+                        <!-- Hairstyle -->
+                        <div class="bg-white rounded-2xl p-6 shadow-soft border border-soft-gold/20 hover:shadow-elevated transition-all duration-300">
+                            <label class="block text-lg font-semibold mb-4 text-terracotta">💇‍♀️ Hairstyle</label>
+                            <div class="flex gap-3">
+                                <select id="hairstyle" class="flex-1 bg-warm-white border-2 border-soft-gold/30 rounded-xl px-4 py-3 text-espresso font-medium focus:border-terracotta focus:outline-none transition-colors duration-300">
+                                    <option value="">Choose hairstyle...</option>
+                                    <option value="natural 4c afro">Natural 4c afro</option>
+                                    <option value="box braids with gold cuffs">Box braids with gold cuffs</option>
+                                    <option value="twist-out curls">Twist-out curls</option>
+                                    <option value="high puff with headband">High puff with headband</option>
+                                    <option value="locs styled in a bun">Locs styled in a bun</option>
+                                    <option value="bantu knots">Bantu knots</option>
+                                    <option value="wash-and-go curls">Wash-and-go curls</option>
+                                    <option value="cornrows in geometric patterns">Cornrows in geometric patterns</option>
+                                    <option value="twist braids">Twist braids</option>
+                                    <option value="short tapered cut">Short tapered cut</option>
+                                </select>
+                                <button onclick="randomizeField('hairstyle')" class="bg-gradient-to-r from-soft-gold to-soft-gold/80 hover:from-soft-gold/80 hover:to-soft-gold text-espresso px-4 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-soft">🎲</button>
+                            </div>
+                        </div>
+
+                        <!-- Accessories -->
+                        <div class="bg-white rounded-2xl p-6 shadow-soft border border-soft-gold/20 hover:shadow-elevated transition-all duration-300">
+                            <label class="block text-lg font-semibold mb-4 text-terracotta">✨ Accessories</label>
+                            <div class="flex gap-3">
+                                <select id="accessories" class="flex-1 bg-warm-white border-2 border-soft-gold/30 rounded-xl px-4 py-3 text-espresso font-medium focus:border-terracotta focus:outline-none transition-colors duration-300">
+                                    <option value="">Choose accessories...</option>
+                                    <option value="gold hoop earrings">Gold hoop earrings</option>
+                                    <option value="colorful headwrap">Colorful headwrap</option>
+                                    <option value="layered gold necklaces">Layered gold necklaces</option>
+                                    <option value="vintage sunglasses">Vintage sunglasses</option>
+                                    <option value="beaded jewelry">Beaded jewelry</option>
+                                    <option value="statement earrings">Statement earrings</option>
+                                    <option value="silk scarf">Silk scarf</option>
+                                    <option value="gold bangles">Gold bangles</option>
+                                    <option value="nose ring">Nose ring</option>
+                                    <option value="cowrie shell jewelry">Cowrie shell jewelry</option>
+                                </select>
+                                <button onclick="randomizeField('accessories')" class="bg-gradient-to-r from-soft-gold to-soft-gold/80 hover:from-soft-gold/80 hover:to-soft-gold text-espresso px-4 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-soft">🎲</button>
+                            </div>
+                        </div>
+
+                        <!-- Pose/Action -->
+                        <div class="bg-white rounded-2xl p-6 shadow-soft border border-soft-gold/20 hover:shadow-elevated transition-all duration-300">
+                            <label class="block text-lg font-semibold mb-4 text-terracotta">🕺 Pose/Action</label>
+                            <div class="flex gap-3">
+                                <select id="pose" class="flex-1 bg-warm-white border-2 border-soft-gold/30 rounded-xl px-4 py-3 text-espresso font-medium focus:border-terracotta focus:outline-none transition-colors duration-300">
+                                    <option value="">Choose pose...</option>
+                                    <option value="leaning against a wall">Leaning against a wall</option>
+                                    <option value="sitting cross-legged">Sitting cross-legged</option>
+                                    <option value="walking with purpose">Walking with purpose</option>
+                                    <option value="hands on hips">Hands on hips</option>
+                                    <option value="looking over shoulder">Looking over shoulder</option>
+                                    <option value="arms crossed confidently">Arms crossed confidently</option>
+                                    <option value="mid-laugh">Mid-laugh</option>
+                                    <option value="pointing upward">Pointing upward</option>
+                                    <option value="stretching arms up">Stretching arms up</option>
+                                    <option value="sitting on steps">Sitting on steps</option>
+                                </select>
+                                <button onclick="randomizeField('pose')" class="bg-gradient-to-r from-soft-gold to-soft-gold/80 hover:from-soft-gold/80 hover:to-soft-gold text-espresso px-4 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-soft">🎲</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: More Controls -->
+                    <div class="space-y-6">
+                        <!-- Outfit -->
+                        <div class="bg-white rounded-2xl p-6 shadow-soft border border-soft-gold/20 hover:shadow-elevated transition-all duration-300">
+                            <label class="block text-lg font-semibold mb-4 text-terracotta">👗 Outfit</label>
+                            <div class="flex gap-3">
+                                <select id="outfit" class="flex-1 bg-warm-white border-2 border-soft-gold/30 rounded-xl px-4 py-3 text-espresso font-medium focus:border-terracotta focus:outline-none transition-colors duration-300">
+                                    <option value="">Choose outfit...</option>
+                                    <option value="oversized denim jacket">Oversized denim jacket</option>
+                                    <option value="colorful ankara print dress">Colorful ankara print dress</option>
+                                    <option value="crop top and high-waisted jeans">Crop top and high-waisted jeans</option>
+                                    <option value="vintage band t-shirt">Vintage band t-shirt</option>
+                                    <option value="blazer and sneakers">Blazer and sneakers</option>
+                                    <option value="flowy maxi dress">Flowy maxi dress</option>
+                                    <option value="graphic hoodie">Graphic hoodie</option>
+                                    <option value="leather jacket">Leather jacket</option>
+                                    <option value="bohemian blouse">Bohemian blouse</option>
+                                    <option value="streetwear ensemble">Streetwear ensemble</option>
+                                </select>
+                                <button onclick="randomizeField('outfit')" class="bg-gradient-to-r from-soft-gold to-soft-gold/80 hover:from-soft-gold/80 hover:to-soft-gold text-espresso px-4 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-soft">🎲</button>
+                            </div>
+                        </div>
+
+                        <!-- Type of Drink -->
+                        <div class="bg-white rounded-2xl p-6 shadow-soft border border-soft-gold/20 hover:shadow-elevated transition-all duration-300">
+                            <label class="block text-lg font-semibold mb-4 text-terracotta">🥤 Type of Drink</label>
+                            <div class="flex gap-3">
+                                <select id="drink" class="flex-1 bg-warm-white border-2 border-soft-gold/30 rounded-xl px-4 py-3 text-espresso font-medium focus:border-terracotta focus:outline-none transition-colors duration-300">
+                                    <option value="">Choose drink...</option>
+                                    <option value="iced coffee">Iced coffee</option>
+                                    <option value="bubble tea">Bubble tea</option>
+                                    <option value="smoothie">Smoothie</option>
+                                    <option value="herbal tea">Herbal tea</option>
+                                    <option value="coconut water">Coconut water</option>
+                                    <option value="matcha latte">Matcha latte</option>
+                                    <option value="fresh juice">Fresh juice</option>
+                                    <option value="kombucha">Kombucha</option>
+                                    <option value="chai latte">Chai latte</option>
+                                    <option value="energy drink">Energy drink</option>
+                                </select>
+                                <button onclick="randomizeField('drink')" class="bg-gradient-to-r from-soft-gold to-soft-gold/80 hover:from-soft-gold/80 hover:to-soft-gold text-espresso px-4 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-soft">🎲</button>
+                            </div>
+                        </div>
+
+                        <!-- Vibe/Style/Mood -->
+                        <div class="bg-white rounded-2xl p-6 shadow-soft border border-soft-gold/20 hover:shadow-elevated transition-all duration-300">
+                            <label class="block text-lg font-semibold mb-4 text-terracotta">🌟 Vibe/Style/Mood</label>
+                            <div class="flex gap-3">
+                                <select id="vibe" class="flex-1 bg-warm-white border-2 border-soft-gold/30 rounded-xl px-4 py-3 text-espresso font-medium focus:border-terracotta focus:outline-none transition-colors duration-300">
+                                    <option value="">Choose vibe...</option>
+                                    <option value="creative and artistic energy">Creative and artistic energy</option>
+                                    <option value="chill and relaxed vibes">Chill and relaxed vibes</option>
+                                    <option value="bold and fearless attitude">Bold and fearless attitude</option>
+                                    <option value="warm and approachable">Warm and approachable</option>
+                                    <option value="mysterious and intriguing">Mysterious and intriguing</option>
+                                    <option value="joyful and radiant">Joyful and radiant</option>
+                                    <option value="sophisticated elegance">Sophisticated elegance</option>
+                                    <option value="rebellious spirit">Rebellious spirit</option>
+                                    <option value="peaceful confidence">Peaceful confidence</option>
+                                    <option value="dynamic and energetic">Dynamic and energetic</option>
+                                </select>
+                                <button onclick="randomizeField('vibe')" class="bg-gradient-to-r from-soft-gold to-soft-gold/80 hover:from-soft-gold/80 hover:to-soft-gold text-espresso px-4 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-soft">🎲</button>
+                            </div>
+                        </div>
+
+                        <!-- Art Style -->
+                        <div class="bg-white rounded-2xl p-6 shadow-soft border border-soft-gold/20 hover:shadow-elevated transition-all duration-300">
+                            <label class="block text-lg font-semibold mb-4 text-terracotta">🎨 Art Style</label>
+                            <div class="flex gap-3">
+                                <select id="artStyle" class="flex-1 bg-warm-white border-2 border-soft-gold/30 rounded-xl px-4 py-3 text-espresso font-medium focus:border-terracotta focus:outline-none transition-colors duration-300">
+                                    <option value="">Choose art style...</option>
+                                    <option value="semi-realistic digital painting">Semi-realistic digital painting</option>
+                                    <option value="cute anime-style">Cute anime-style</option>
+                                    <option value="bold comic book style">Bold comic book style</option>
+                                    <option value="soft watercolor sketch">Soft watercolor sketch</option>
+                                    <option value="3D Pixar-inspired">3D Pixar-inspired</option>
+                                    <option value="mixed media collage">Mixed media collage</option>
+                                    <option value="hyperrealistic portrait">Hyperrealistic portrait</option>
+                                    <option value="vaporwave aesthetic">Vaporwave aesthetic</option>
+                                    <option value="graffiti mural style">Graffiti mural style</option>
+                                    <option value="flat minimalist vector">Flat minimalist vector</option>
+                                </select>
+                                <button onclick="randomizeField('artStyle')" class="bg-gradient-to-r from-soft-gold to-soft-gold/80 hover:from-soft-gold/80 hover:to-soft-gold text-espresso px-4 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-soft">🎲</button>
+                            </div>
+                        </div>
+
+                        <!-- Action Button -->
+                        <div class="flex justify-center">
+                            <button onclick="generateRandom()" class="bg-white hover:bg-warm-white text-terracotta font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-soft hover:shadow-elevated border-2 border-terracotta/20 hover:border-terracotta/40">
+                                💡 Feeling Stuck? Randomize All!
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Final Prompt Section -->
+                <div class="mt-16 bg-gradient-to-br from-white to-warm-white rounded-3xl p-8 shadow-elevated border border-soft-gold/30">
+                    <h3 class="text-3xl font-bold text-terracotta mb-4 text-center">✨ Your Generated Prompt</h3>
+                    <div class="mb-6 text-center">
+                        <p class="text-espresso/70 font-medium">
+                            Love the generator? Check out the GPT inside the <a href="https://acanvatool.com/vip" target="_blank" class="text-terracotta hover:text-terracotta/80 font-semibold underline transition-colors duration-300">Visionary In Progress</a> community vault
+                        </p>
+                    </div>
+                    <div id="promptPreview" class="bg-gradient-to-r from-soft-gold/10 to-terracotta/5 rounded-2xl p-8 mb-8 min-h-[120px] border-2 border-soft-gold/20 shadow-soft">
+                        <p class="text-lg leading-relaxed font-medium text-espresso" id="promptText">
+                            Select options above to generate your character prompt...
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <button onclick="copyPrompt()" id="copyButton" class="bg-gradient-to-r from-terracotta to-terracotta/90 hover:from-terracotta/90 hover:to-terracotta text-white font-bold py-4 px-10 rounded-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-soft hover:shadow-elevated active:scale-95">
+                            <span id="copyButtonText">✅ Copy Prompt</span>
+                        </button>
+                        <div class="mt-4">
+                            <span id="copyFeedback" class="text-terracotta font-bold opacity-0 transition-opacity duration-300 bg-soft-gold/20 px-4 py-2 rounded-lg">Copied! 🎉</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 3: Vault -->
+    <div id="page3" class="hidden min-h-screen">
+        <!-- Gradient Header -->
+        <div class="bg-gradient-to-br from-terracotta/20 via-soft-gold/30 to-terracotta/10 py-16 px-6">
+            <div class="max-w-5xl mx-auto text-center">
+                <button onclick="showPage('page1')" class="text-terracotta hover:text-terracotta/80 mb-8 inline-flex items-center font-medium transition-colors duration-300">
+                    ← Back to Home
+                </button>
+                
+                <h1 class="text-5xl md:text-6xl font-bold text-espresso mb-6">Get More + Visionary Vault</h1>
+                <h2 class="text-2xl md:text-3xl font-semibold text-terracotta mb-8">Unlock more creative tools and training!</h2>
+            </div>
+        </div>
+
+        <div class="px-6 py-16 -mt-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-3xl p-8 md:p-12 mb-12 shadow-elevated border border-soft-gold/20">
+                    <p class="text-lg md:text-xl text-espresso/80 leading-relaxed mb-6 text-center">
+                        Want more prompt packs, tutorials, creative sprints, and a soft productivity system powered by AI?
+                    </p>
+                    <p class="text-xl font-bold text-terracotta text-center">
+                        🎓 Join Visionary In Progress — your hub for AI-powered creativity and calm ambition.
+                    </p>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="https://acanvatool.com/vip" target="_blank" class="group bg-gradient-to-r from-terracotta to-terracotta/90 hover:from-terracotta/90 hover:to-terracotta text-white font-bold text-xl px-10 py-5 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-soft hover:shadow-elevated">
+                        <span class="flex items-center justify-center gap-3">
+                            🔑 Access the Vault
+                            <div class="w-2 h-2 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </span>
+                    </a>
+                    <a href="https://affirmedvisionary.store/visionary" target="_blank" class="group bg-white hover:bg-warm-white text-terracotta font-bold text-xl px-10 py-5 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-soft hover:shadow-elevated border-2 border-terracotta/20 hover:border-terracotta/40">
+                        <span class="flex items-center justify-center gap-3">
+                            💌 Get Freebies
+                            <div class="w-2 h-2 bg-terracotta rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </span>
+                    </a>
+                    <a href="https://justvisionary.gumroad.com" target="_blank" class="group bg-white hover:bg-warm-white text-terracotta font-bold text-xl px-10 py-5 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-soft hover:shadow-elevated border-2 border-terracotta/20 hover:border-terracotta/40">
+                        <span class="flex items-center justify-center gap-3">
+                            🛍️ Shop the Archive
+                            <div class="w-2 h-2 bg-terracotta rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Page navigation
+        function showPage(pageId) {
+            document.querySelectorAll('[id^="page"]').forEach(page => {
+                page.classList.add('hidden');
+            });
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+
+        // Prompt generation
+        function updatePrompt() {
+            const confidence = document.getElementById('confidence').value;
+            const identity = document.getElementById('identity').value;
+            const hairstyle = document.getElementById('hairstyle').value;
+            const accessories = document.getElementById('accessories').value;
+            const pose = document.getElementById('pose').value;
+            const outfit = document.getElementById('outfit').value;
+            const drink = document.getElementById('drink').value;
+            const vibe = document.getElementById('vibe').value;
+            const artStyle = document.getElementById('artStyle').value;
+
+            let prompt = "A ";
+            if (confidence) prompt += confidence + " ";
+            if (identity) prompt += identity + " ";
+            if (hairstyle) prompt += "with " + hairstyle + ", ";
+            if (accessories) prompt += accessories + ", ";
+            if (pose) prompt += pose + ", ";
+            if (outfit) prompt += "wearing " + outfit + ", ";
+            if (drink) prompt += "holding a " + drink + " ";
+            prompt += "with a backpack, ";
+            if (vibe) prompt += "radiating " + vibe + ", ";
+            if (artStyle) prompt += "illustrated in a " + artStyle + ".";
+
+            // Clean up the prompt
+            prompt = prompt.replace(/,\s*,/g, ',').replace(/,\s*\./g, '.').replace(/\s+/g, ' ').trim();
+            
+            if (prompt === "A with a backpack, .") {
+                prompt = "Select options above to generate your character prompt...";
+            }
+
+            document.getElementById('promptText').textContent = prompt;
+        }
+
+        // Randomize individual field
+        function randomizeField(fieldId) {
+            const select = document.getElementById(fieldId);
+            const options = select.querySelectorAll('option:not([value=""])');
+            const randomOption = options[Math.floor(Math.random() * options.length)];
+            select.value = randomOption.value;
+            
+            // Add a subtle animation
+            select.style.transform = 'scale(1.02)';
+            setTimeout(() => {
+                select.style.transform = 'scale(1)';
+            }, 150);
+            
+            updatePrompt();
+        }
+
+        // Randomize all fields
+        function randomizeAll() {
+            const fields = ['confidence', 'identity', 'hairstyle', 'accessories', 'pose', 'outfit', 'drink', 'vibe', 'artStyle'];
+            fields.forEach((field, index) => {
+                setTimeout(() => randomizeField(field), index * 100);
+            });
+        }
+
+        // Generate completely random prompt
+        function generateRandom() {
+            randomizeAll();
+            // Show a tooltip or alert
+            setTimeout(() => {
+                alert("🎨 Here's a completely random character prompt! Feel free to adjust any elements to match your vision.");
+            }, 1000);
+        }
+
+        // Copy prompt to clipboard
+        function copyPrompt() {
+            const promptText = document.getElementById('promptText').textContent;
+            const copyButton = document.getElementById('copyButton');
+            const copyButtonText = document.getElementById('copyButtonText');
+            
+            if (promptText !== "Select options above to generate your character prompt...") {
+                // Button animation
+                copyButton.style.transform = 'scale(0.95)';
+                copyButtonText.textContent = '📋 Copying...';
+                
+                // Try modern clipboard API first, fallback to older method
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(promptText).then(() => {
+                        showCopySuccess();
+                    }).catch(() => {
+                        fallbackCopyText(promptText);
+                    });
+                } else {
+                    fallbackCopyText(promptText);
+                }
+            }
+        }
+
+        // Success animation for copy
+        function showCopySuccess() {
+            const copyButton = document.getElementById('copyButton');
+            const copyButtonText = document.getElementById('copyButtonText');
+            
+            setTimeout(() => {
+                copyButton.style.transform = 'scale(1.05)';
+                copyButtonText.textContent = '✨ Copied!';
+                
+                setTimeout(() => {
+                    copyButton.style.transform = 'scale(1)';
+                    copyButtonText.textContent = '✅ Copy Prompt';
+                }, 200);
+            }, 150);
+            
+            const feedback = document.getElementById('copyFeedback');
+            feedback.classList.remove('opacity-0');
+            setTimeout(() => {
+                feedback.classList.add('opacity-0');
+            }, 3000);
+        }
+
+        // Fallback copy method for older browsers
+        function fallbackCopyText(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                showCopySuccess();
+            } catch (err) {
+                console.error('Copy failed:', err);
+                // Reset button if copy fails
+                const copyButton = document.getElementById('copyButton');
+                const copyButtonText = document.getElementById('copyButtonText');
+                copyButton.style.transform = 'scale(1)';
+                copyButtonText.textContent = '❌ Copy Failed';
+                setTimeout(() => {
+                    copyButtonText.textContent = '✅ Copy Prompt';
+                }, 2000);
+            }
+            
+            document.body.removeChild(textArea);
+        }
+
+        // Add event listeners to all selects
+        document.addEventListener('DOMContentLoaded', function() {
+            const selects = document.querySelectorAll('select');
+            selects.forEach(select => {
+                select.addEventListener('change', updatePrompt);
+                
+                // Add focus effects
+                select.addEventListener('focus', function() {
+                    this.parentElement.parentElement.style.transform = 'translateY(-2px)';
+                });
+                
+                select.addEventListener('blur', function() {
+                    this.parentElement.parentElement.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'962e987ee7602a45',t:'MTc1MzE0MTc3NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
